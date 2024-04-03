@@ -17,7 +17,7 @@
     "Green Component" : 0.88627450980392153
   },
   "Use Italic Font" : true,
-  "HotKey Characters" : "",
+  "HotKey Characters" : "",
   "Foreground Color" : {
     "Red Component" : 0.80392156862745101,
     "Color Space" : "sRGB",
@@ -94,7 +94,7 @@
   "Use Cursor Guide" : true,
   "Unlimited Scrollback" : false,
   "Custom Command" : "No",
-  "HotKey Key Code" : 100,
+  "HotKey Key Code" : 96,
   "Keyboard Map" : {
     "0x74-0x100000-0x0" : {
       "Label" : "",
@@ -403,7 +403,7 @@
   },
   "Screen" : -1,
   "Initial Use Transparency" : true,
-  "HotKey Characters Ignoring Modifiers" : "",
+  "HotKey Characters Ignoring Modifiers" : "",
   "Non Ascii Font" : "Monaco 12",
   "Ansi 13 Color" : {
     "Red Component" : 0.96078431372549022,
