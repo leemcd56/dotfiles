@@ -1,0 +1,48 @@
+###############################################
+##  Homebrew Functions
+###############################################
+function deps() { brew list | while read cask; do echo -n $fg[blue] $cask $fg[white]; brew deps $cask | awk '{printf(" %s ", $0)}'; echo ""; done }
+function install-cask() { brew cask install $@ ;}
+function install-deps() { brew install $@ ;}
+
+###############################################
+##  Git Functions
+###############################################
+function create-branch() { git checkout -b $@ ;}
+function change-repo() { git remote set-url origin $@ ;}
+function clone-repo() { git clone https://github.com/$@ ;}
+function commit-all() { git add -A && git commit -m "$@" && git push ;}
+
+function create-branch-base () {
+  base_branch=$(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | awk '{print $1}')
+
+  if [ -n "$base_branch" ]; then
+    git checkout -b $@ $base_branch
+  else
+    echo "Cannot create $base_branch outside of git repository"
+  fi
+}
+
+function change-branch () {
+  base_branch=$(git checkout $@)
+
+  if [ $? -eq 0 ]
+  then
+    git pull
+  else
+    search_branch=$(git branch -a | grep $@ | sed 's/^.[^ \t]* //;s/ .*//' | sed -n '1p')
+
+    if [ $? -eq 0 ]
+    then
+      git checkout $search_branch
+      git pull
+    else
+      echo "Branch $? does not exist"
+    fi
+  fi
+}
+
+###############################################
+##  Misc. Functions
+###############################################
+function lsdir() { ls -l --color=always "$@" | grep --color=never '^d' }

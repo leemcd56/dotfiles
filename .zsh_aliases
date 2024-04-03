@@ -1,0 +1,32 @@
+###############################################
+##  Git Aliases
+###############################################
+alias amend="git commit --amend"
+alias clean="git reset --hard"
+alias fetch="git fetch"
+alias fix="git add . && git commit -m \"Fix merge issues on prior commit\""
+alias graph="git log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order"
+alias logs="git log --oneline --graph --pretty --author=\"$(whoami)\" --after=\"1 week ago\""
+alias nah="git reset --hard HEAD && git clean -df"
+alias noignore="git update-index --no-skip-worktree"
+alias status="git status"
+alias tags='git tag -l --sort=-creatordate'
+alias unstage="git reset -q HEAD --"
+alias yesignore="git update-index --skip-worktree"
+
+###############################################
+##  System Aliases
+###############################################
+alias dir='tree -d -L 1'
+alias dirtree='tree -v --charset utf-8'
+
+# Grep aliases
+alias grep='grep --color=always'
+alias grep-less='grep-pyc --exclude=\*/{css,plugins,log,logs}/\*'
+alias grep-min='grep --exclude=\*.min.\*'
+alias grep-pyc='grep --exclude=\*.{min.\*,pyc} --exclude=\*/coverage/'
+alias ungrep='grep -v'
+
+if [ -x /usr/bin/dircolors ]; then
+  alias ls='ls --color=auto'
+fi
