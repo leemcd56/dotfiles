@@ -8,12 +8,12 @@ function install-deps() { brew install $@ ;}
 ###############################################
 ##  Git Functions
 ###############################################
-function create-branch() { git checkout -b $@ ;}
-function change-repo() { git remote set-url origin $@ ;}
-function clone-repo() { git clone https://github.com/$@ ;}
+function makeit() { git checkout -b $@ ;}
+function changeit() { git remote set-url origin $@ ;}
+function cloneit() { git clone https://github.com/$@ ;}
 function commit-all() { git add -A && git commit -m "$@" && git push ;}
 
-function create-branch-base () {
+function makeit-based () {
   base_branch=$(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | awk '{print $1}')
 
   if [ -n "$base_branch" ]; then
@@ -23,7 +23,7 @@ function create-branch-base () {
   fi
 }
 
-function change-branch () {
+function gimme () {
   base_branch=$(git checkout $@)
 
   if [ $? -eq 0 ]
