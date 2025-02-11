@@ -1,0 +1,15 @@
+theme = dark:catppuccin-macchiato,light:catppuccin-latte
+
+background-blur = true
+background-opacity = 0.8
+
+adjust-cell-height = 5
+
+font-family = "Comic Code Ligatures"
+font-feature = "calt" on
+font-feature = "liga" on
+font-feature = "dlig" on
+font-size = 12
+font-style = Regular
+
+keybind = global:f5=toggle_visibility
